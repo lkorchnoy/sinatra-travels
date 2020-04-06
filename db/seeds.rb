@@ -1,0 +1,1 @@
+Travel.create(name: "Amazing Trip")
