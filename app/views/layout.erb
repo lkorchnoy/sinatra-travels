@@ -34,7 +34,7 @@
     <p class="links"><a href="/logout" class="logout">Log Out</a></p>
      <p class="links"><a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>">My Travels</a></p>
      <p class="links"><a href="/travels/new">New Travel</a></p>
-     <p class="links"><a href="#">All Travels</a></p>
+     <p class="links"><a href="/travels">All Travels</a></p>
      <p class="links"><a href="/users">All Users</a></p>
      <% end %>
 

@@ -1,6 +1,14 @@
 class TravelsController < ApplicationController 
+  
 
-get '/travels/new' do
+    get '/travels' do 
+      @travels = Travel.all 
+        erb :'travels/index' 
+    end
+
+
+
+    get '/travels/new' do
     if !Helpers.is_logged_in?(session) 
         redirect '/'
     end
