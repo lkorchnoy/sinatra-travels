@@ -3,3 +3,7 @@
 <p><%= @travel.description %></p>
 <p><%= @travel.recommendation %></p>
 <p><%= @travel.distance %></p>
+
+<% if Helpers.current_user(session) == @travel.user %>
+<a href="/travels/<%=@travel.id%>/edit">Edit Travel</a>
+<% end %>

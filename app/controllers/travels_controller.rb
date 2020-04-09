@@ -36,6 +36,24 @@ get '/travels/:id' do
     erb :'travels/show'
 end
 
+get '/travels/:id/edit' do 
+    @travel = Travel.find_by(id: params[:id])
+    if !Helpers.is_logged_in?(session) || !@travel || @travel.user != Helpers.current_user(session)
+        redirect '/'
+    end
+ 
+    erb :'/travels/edit'
+end
+
+patch '/travels/:id' do
+    travel = Travel.find_by(id: params[:id])
+    if travel && travel.user == Helpers.current_user(session)
+    travel.update(params[:travel])
+    redirect to "/travels/#{travel.id}"
+    else   
+        redirect to "/travels"
+    end
+end
 
     
 

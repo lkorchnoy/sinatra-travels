@@ -1,0 +1,14 @@
+<h1>Edit Travel</h1>
+
+<form action="/travels/<%=@travel.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+<label>Name: </label>
+<input type="text" name="travel[name]" value="<%=@travel.name%>"/><br />
+<label>Description: </label>
+<textarea rows="12" cols="80" type="text" name="travel[description]" value="<%=@travel.description%>"></textarea><br />
+<label>Recommendation: </label>
+<textarea rows="12" cols="80" type="text" name="travel[recommendation]" value="<%=@travel.recommendation%>"></textarea><br />
+<label>Distance from Home: </label>
+<input type="text" name="travel[distance]" value="<%=@travel.distance%>"/><br />
+<input type="submit" value="Edit Travel">
+</form>
