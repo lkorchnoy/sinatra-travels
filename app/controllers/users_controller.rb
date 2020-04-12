@@ -1,20 +1,16 @@
-require 'rack-flash'	
+	
 
 class UsersController < ApplicationController 
   
-  use Rack::Flash
-
+ 
 get '/users' do 
     if Helpers.is_logged_in?(session)
       @users = User.all 
     else 
-      flash[:message] = "Please sign up or log in to use Traveling around the globe App"   
       redirect to '/'
     end
     erb :'users/index' 
 end
-
-
 
 
 get '/signup' do
@@ -44,7 +40,7 @@ post '/login' do
 end
 
 post '/signup' do 
-    user = User.create(params) #input names that match column names in my table
+   user = User.create(params) #input names that match column names in my table
     if user.valid?
       session[:user_id] = user.id 
       redirect to "/users/#{user.id}"
@@ -58,15 +54,13 @@ get '/users/:id' do
       @user = User.find_by(id: params[:id])
       @travels = @user.travels 
     else 
-      flash[:message] = "Please sign up or log in to use Traveling around the globe App"   
-        redirect to '/'
+      redirect to '/'
     end
     erb :'users/show'
 end
 
 get '/logout' do 
     session.clear
-    flash[:message] = "Please sign up or log in to use Traveling around the globe App"   
     redirect to '/'
 end
 
