@@ -1,4 +1,0 @@
-Models 
- -User
- -Travel
- -Location 
