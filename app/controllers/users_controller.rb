@@ -1,9 +1,14 @@
+require 'rack-flash'	
+
 class UsersController < ApplicationController 
+  
+  use Rack::Flash
 
 get '/users' do 
     if Helpers.is_logged_in?(session)
       @users = User.all 
-    else    
+    else 
+      flash[:message] = "Please sign up or log in to use Traveling around the globe App"   
       redirect to '/'
     end
     erb :'users/index' 
@@ -53,6 +58,7 @@ get '/users/:id' do
       @user = User.find_by(id: params[:id])
       @travels = @user.travels 
     else 
+      flash[:message] = "Please sign up or log in to use Traveling around the globe App"   
         redirect to '/'
     end
     erb :'users/show'
@@ -60,6 +66,7 @@ end
 
 get '/logout' do 
     session.clear
+    flash[:message] = "Please sign up or log in to use Traveling around the globe App"   
     redirect to '/'
 end
 

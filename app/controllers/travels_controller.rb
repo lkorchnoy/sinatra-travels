@@ -8,6 +8,7 @@ end
 
 get '/travels/new' do
     if !Helpers.is_logged_in?(session) 
+      flash[:message] = "Please sign up or log in to use Traveling around the globe App"   
       redirect '/'
     end
       erb :'travels/new'
@@ -29,6 +30,7 @@ get '/travels/:id' do
     end
       @travel = Travel.find_by(id: params[:id])
     if !@travel 
+      flash[:message] = "Please sign up or log in to use Traveling around the globe App"   
       redirect to '/'  #travels
     end
       erb :'travels/show'
