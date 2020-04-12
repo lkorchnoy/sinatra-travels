@@ -17,7 +17,7 @@ https://github.com/lkorchnoy/sinatra-travels.git
 
 License
 
-The gem is available as open source under the terms of the MIT License.
+The gem is available as open source under the terms of the MIT License https://github.com/lkorchnoy/sinatra-travels/blob/master/LICENSE
 
 Code of Conduct
 
