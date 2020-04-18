@@ -17,10 +17,13 @@ end
 
 post '/travels' do
     travel = Travel.create(params)
+    if travel.valid?
     user = Helpers.current_user(session)
     travel.user = user 
     travel.save
     redirect to "/users/#{user.id}"
+end
+    redirect '/'
 end
 
 get '/travels/:id' do 
