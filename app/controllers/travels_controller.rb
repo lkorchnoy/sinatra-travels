@@ -46,6 +46,13 @@ get '/travels/:id/edit' do
       erb :'/travels/edit'
 end
 
+post '/search' do
+  #binding.pry  
+@travel = Travel.all.find_by(name: params[:name])
+redirect to "/travels/#{@travel.id}"
+end 
+
+
 patch '/travels/:id' do
       travel = Travel.find_by(id: params[:id])
     if travel && travel.user == Helpers.current_user(session)

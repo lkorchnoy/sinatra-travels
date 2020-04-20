@@ -1,10 +1,12 @@
 Sinatra-Travels App
 
-This Ruby Gem is a Sinatra MVC application that produces information about travels around the globe, listed by travelers.
+This is a Sinatra MVC application that produces information about travels around the globe, listed by travelers.
 
 Installing
 
-You can install this application by running gem install sinatra-travels.
+You can also clone this repo with SSH or HTTPS from https://github.com/lkorchnoy/sinatra-travels and open it by typing the below into your terminal
+
+git clone https://github.com/lkorchnoy/sinatra-travels
 
 Usage 
 
@@ -13,7 +15,7 @@ Run travelers reviews about travels around the globe, specific locations, descri
 Contributing 
 
 Bug reports and pull requests are welcome on GitHub at 
-https://github.com/lkorchnoy/sinatra-travels.git
+https://github.com/lkorchnoy/sinatra-travels 
 
 License
 

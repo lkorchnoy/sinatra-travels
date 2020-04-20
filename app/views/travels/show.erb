@@ -8,10 +8,8 @@
 <% if Helpers.current_user(session) == @travel.user %>
 <a href="/travels/<%=@travel.id%>/edit">Edit Travel</a>
 
-
+<% end %>
 <form action="/travels/<%=@travel.id%>/delete" method="post">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" value="Delete">
 </form>
-
-<% end %>
