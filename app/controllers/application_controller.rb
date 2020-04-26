@@ -13,4 +13,14 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  # post '/' do
+  #  if @travel = Travel.all.find_by(name: params[:travel])
+  # redirect "/travels/#{@travel.id}"
+  #  else  
+  # redirect "/"
+  #  end 
+  # end 
+
+ 
+
 end 

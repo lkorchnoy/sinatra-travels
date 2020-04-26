@@ -40,12 +40,12 @@ post '/login' do
 end
 
 post '/signup' do 
-   user = User.create(params) #input names that match column names in my table
-    if user.valid?
-      session[:user_id] = user.id 
-      redirect to "/users/#{user.id}"
+   @user = User.create(params) #input names that match column names in my table
+    if @user.valid?
+      session[:user_id] = @user.id 
+      redirect to "/users/#{@user.id}"
     else    
-      redirect to '/signup'
+      erb :'users/signup'
     end
   end
 

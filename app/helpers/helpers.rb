@@ -9,6 +9,12 @@ class Helpers
         session[:user_id] ? true : false
     end
 
+    def self.authenticate_resource(session, resource)
+        if !(is_logged_in?(session) && resource.user == current_user)
+            yield
+        end
+    end
+
 
 
 end

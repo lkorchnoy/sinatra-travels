@@ -13,6 +13,11 @@ get '/travels/new' do
       erb :'travels/new'
 end
 
+post '/search' do 
+  @travels = Travel.where('name LIKE ?', "%#{params[:travel]}%")
+  erb :'travels/index'
+end
+
     
 
 post '/travels' do
@@ -40,17 +45,13 @@ end
 
 get '/travels/:id/edit' do 
       @travel = Travel.find_by(id: params[:id])
+      #if Helpers.authenticate_resource(session, resource)
     if !Helpers.is_logged_in?(session) || !@travel || @travel.user != Helpers.current_user(session)
       redirect '/'
     end
       erb :'/travels/edit'
 end
 
-post '/search' do
-  #binding.pry  
-@travel = Travel.all.find_by(name: params[:name])
-redirect to "/travels/#{@travel.id}"
-end 
 
 
 patch '/travels/:id' do

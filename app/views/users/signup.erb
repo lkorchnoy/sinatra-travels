@@ -1,5 +1,12 @@
 <h1>Sign Up</h1>
 
+<% if @user && @user.errors.any? %>
+    <% @user.errors.full_messages.each do |m| %>
+        <p style="color: red;"><%= m %></p>
+    <% end %>
+<% end %>
+
+
 <form action="/signup" method="post">
 <label>Username: </label>
 <input type="text" name="username" /><br />
